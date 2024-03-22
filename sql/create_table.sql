@@ -13,7 +13,7 @@ create table if not exists user
     userAccount  varchar(256)                           not null comment '账号',
     userPassword varchar(512)                           not null comment '密码',
     userName     varchar(256)                           null comment '用户昵称',
-    userAvatar   varchar(1024)                          null comment '用户头像',
+    userAvatar   varchar(1024)                          null comment '用户头像 ',
     userRole     varchar(256) default 'user'            not null comment '用户角色：user/admin',
     createTime   datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
     updateTime   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
