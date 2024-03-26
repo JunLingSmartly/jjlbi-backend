@@ -23,9 +23,8 @@ public class FanoutConsumer {
     channel1.queueBind(queueName, EXCHANGE_NAME, "");
 
     String queueName2 = "xiaoli_queue";
-    channel2.queueDeclare(queueName2, true, false, false, null);
-    channel2.queueBind(queueName2, EXCHANGE_NAME, "");
-    channel2.queueBind(queueName2, EXCHANGE_NAME, "");
+    channel1.queueDeclare(queueName2, true, false, false, null);
+    channel1.queueBind(queueName2, EXCHANGE_NAME, "");
 
     System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
@@ -39,6 +38,6 @@ public class FanoutConsumer {
       System.out.println(" [小李] Received '" + message + "'");
     };
     channel1.basicConsume(queueName, true, deliverCallback1, consumerTag -> { });
-    channel2.basicConsume(queueName2, true, deliverCallback2, consumerTag -> { });
+    channel1.basicConsume(queueName2, true, deliverCallback2, consumerTag -> { });
   }
 }
